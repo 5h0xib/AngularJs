@@ -1,0 +1,104 @@
+.orange{
+    color: orange;
+}
+
+body{
+    background-image: linear-gradient(rgb(104, 153, 49),rgb(2, 73, 0));
+    background-position: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    font-size: 22px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 400;
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.dir-body{
+    width: 363px;
+}
+
+.dir-body button{
+    border: none;
+    border: 2px solid #007c15;
+    background-color: #effff2;
+    border-radius: 20px;
+    padding: 10px;
+    font-weight: 600;
+    margin-right: 0px;
+    width: 70px;
+}
+
+input{
+    border: none;
+    border: 2px solid #007c15;
+    background-color: #effff2;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 15px;
+    margin-right: 0px;
+    list-style-type: none;
+}
+
+.main .list-box{
+    background-color: #effff2;
+    color: rgb(39, 39, 39);
+    padding-right: 30px;
+    padding-top: 15px;
+    border: none;
+    border: 2px solid #64c574;
+    border-radius: 20px;
+}
+
+.main ul li {
+    list-style-type: none;
+    padding: 10px;
+    border: none;
+    border-top: 2px solid #78ce8a;;
+}
+
+.main ul li span{
+    color: rgb(255, 99, 99);
+    float: right;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+/* add-section */
+
+.add-section, form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 70px;
+    margin-bottom: 50px;
+}
+
+.add-section input{
+    width: 250px;
+}
+
+.add-section h2{
+    margin: 0px;
+}
+
+.add-section button{
+    border: none;
+    border: 2px solid #007c15;
+    background-color: #effff2;
+    border-radius: 20px;
+    padding: 10px;
+    font-weight: 600;
+    margin-right: 0px;
+    width: 70px;
+    margin: 20px;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app/app.js"></script>
+</head>
+<body >
+    <ng-include src="'header.html'"></ng-include>
+    <div class="main" ng-controller="AppController">
+        <div class="dir-body">
+            <button ng-click="order='name' " >Name</button>
+            <button ng-click="order='rate' " >Rate</button>
+            <input type="text" ng-model="search" placeholder="search">
+            <div class="list-box">
+                <ul>
+                    <li ng-repeat="arrays in arr | orderBy: order | filter: search " ng-show="arrays.available">
+                        {{arrays.name}}  {{arrays.rate | currency:'₹'}} 
+                        <span ng-click="del(arrays)">x</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="add-section">
+            <h2>Add song</h2>
+            <form ng-submit="addData()">
+                <input type="text" placeholder="Name" ng-model="newData.name">
+                <input type="text" placeholder="Rate" ng-model="newData.rate">
+                <input type="text" placeholder="color" ng-model="newData.color">
+                <input type="submit" value="Add">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
