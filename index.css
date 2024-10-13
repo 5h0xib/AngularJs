@@ -1,5 +1,9 @@
-.orange{
-    color: orange;
+*{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+html{
+    scroll-behavior: smooth;
 }
 
 body{
@@ -9,7 +13,6 @@ body{
     background-size: cover;
     color: white;
     font-size: 22px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: 400;
 }
 
@@ -33,6 +36,10 @@ body{
     font-weight: 600;
     margin-right: 0px;
     width: 70px;
+}
+
+.dir-body input{
+    width: 150px;
 }
 
 input{

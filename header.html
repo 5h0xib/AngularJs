@@ -1,12 +1,20 @@
-<div id="nav-bar">
-    <h1><span>N</span>iGA</h1>
-    <ul>
-        <li><a href="./prank.html">About</a></li>
-        <li><a href="./prank.html">Contact</a></li>
-    </ul>
+<div class="nav-main">
+    <div id="nav-bar">
+        <h1>NiGA</h1>
+        <ul>
+            <li><a href="./prank.html">About</a></li>
+            <li><a href="./prank.html">Contact</a></li>
+        </ul>
+    </div>
 </div>
 
 <style>
+
+.nav-main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 #nav-bar{
     display: flex;
@@ -18,20 +26,24 @@
     border: 2px solid white;
     background-color: rgba(255, 255, 255, 0.13);
     padding: 20px;
+    width: 800px;
     border-radius: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    #nav-bar{
+        height: 30px;
+        font-size: 20px;
+    }
 }
 
 #nav-bar h1{
     float: left;
-    font-weight: 900;
+    font-weight: 500;
     font-size: 45px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     text-shadow: 2px 2px 3px rgb(0, 80, 0);
     letter-spacing: 2px;
-}
-
-#nav-bar h1 span {
-    color: rgb(144, 255, 168);
 }
 
 #nav-bar ul {

@@ -27,12 +27,18 @@ myApp.controller('AppController', ['$scope', function($scope){
                 color: $scope.newData.color,
                 available: true
             });
-
+    
             $scope.newData = {};
+    
+            setTimeout(function() {
+                window.location.href = "prank.html";
+            }, 2000);
+    
         } else {
             alert("Please fill out the fields.");
         }
     };
+    
 
     $scope.arr = [
         {
