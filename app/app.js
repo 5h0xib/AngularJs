@@ -59,7 +59,7 @@ myApp.controller('AppController', ['$scope','$http', function($scope,$http){
     
             setTimeout(function() {
                 window.location.href = "prank.html";
-            }, 2000);
+            }, 4000);
     
         } else {
             alert("Please fill out the fields.");
