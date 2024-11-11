@@ -1,9 +1,21 @@
-var myApp = angular.module("myApp", []);
+var myApp = angular.module("myApp", ['ngRoute']);
 
-// // before app runs
-// myApp.config(function(){
-//     //code
-// });
+// before app runs
+myApp.config(['$routeProvider', function($routeProvider){
+
+    $routeProvider
+    .when('/home', {
+        templateUrl: 'views/home.html',
+        controller: 'AppController'
+    })
+    .when('/directory', {
+        templateUrl: 'views/directory.html',
+        controller: 'AppController'
+    })
+    .otherwise({
+        redirectTo: '/home'
+    });
+}]);
 
 
 // // after the app runs
@@ -12,7 +24,22 @@ var myApp = angular.module("myApp", []);
 // });
 
 
-myApp.controller('AppController', ['$scope', function($scope){
+myApp.directive('randomSong', [function() {
+    return {
+        restrict: 'E',
+        scope: {
+            arr: '=',
+            title: '='
+        },
+        templateUrl: 'views/random.html',
+        controller: function($scope) {
+            $scope.random = Math.floor(Math.random() * 8);
+        }
+    };
+}]);
+
+
+myApp.controller('AppController', ['$scope','$http', function($scope,$http){
 
     $scope.del = function(arrays){
         var deletedarrays = $scope.arr.indexOf(arrays);
@@ -32,62 +59,21 @@ myApp.controller('AppController', ['$scope', function($scope){
     
             setTimeout(function() {
                 window.location.href = "prank.html";
-            }, 3000);
+            }, 2000);
     
         } else {
             alert("Please fill out the fields.");
         }
     };
     
+    $http.get('data/arr.json')
+    .then(function(response) {
+        $scope.arr = response.data;
+    })
+    .catch(function(error) {
+        console.error("Error loading data:", error);
+    });
 
-    $scope.arr = [
-        {
-            name:'Cheir cheri lady',
-            rate:25,
-            color:'green',
-            available:true
-        },
-        {
-            name:'Dancin(Krono Remix)', 
-            rate:6,
-            color:'blue',
-            available:true
-        },
-        {
-            name:'Dusk till dawn', 
-            rate:5,
-            color:'aqua',
-            available:true
-        },
-        {
-            name:"Gansta's Parradise",
-            rate:70,
-            color:'black',
-            available:true
-        },
-        {
-            name:'Not like us',
-            rate:80,
-            color:'pink',
-            available:true
-        },
-        {
-            name:'The Spectre',
-            rate:50,
-            color:'red',
-            available:true
-        },
-        {
-            name:'The Box',
-            rate:10,
-            color:'purple',
-            available:true
-        },
-        {
-            name:'KEEP UP',
-            rate:60,
-            color:'cyan',
-            available:true
-        },
-    ];
+    console.log(angular.toJson($scope.arr));
+
 }]);

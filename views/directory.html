@@ -1,0 +1,27 @@
+<div class="main">
+    <div class="dir-body">
+        <button ng-click="order='name'">Name</button>
+        <button ng-click="order='rate'">Rate</button>
+        <input type="text" ng-model="search" placeholder="search">
+        <div class="list-box">
+            <ul>
+                <li ng-repeat="arrays in arr | orderBy: order | filter: search" ng-show="arrays.available">
+                    <div class="color-circle" style="background-color: {{arrays.color}}"></div>
+                    <div>
+                        {{arrays.name}} {{arrays.rate | currency:'₹'}}
+                    </div>
+                    <span ng-click="del(arrays)">x</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="add-section">
+        <h2>Add Song</h2>
+        <form ng-submit="addData()">
+            <input type="text" placeholder="Name" ng-model="newData.name">
+            <input type="text" placeholder="Rate" ng-model="newData.rate">
+            <input type="text" placeholder="Color" ng-model="newData.color">
+            <input type="submit" value="Add">
+        </form>
+    </div>
+</div>

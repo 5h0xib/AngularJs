@@ -1,0 +1,34 @@
+<div>
+    <h1>{{title}}</h1>
+    <div class="random-song-div">
+        <div class="color-circle" style="background-color: {{arr[random].color}}"></div>
+        {{arr[random].name}}
+    </div>
+</div>
+
+<style>
+
+.random-song-div{
+    background-color: rgb(235, 235, 235);
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    border: none;
+    border-radius: 20px;
+    border: 2px solid #ffffff;
+    box-shadow: 0px 0px 16px rgb(255, 255, 255);
+}
+
+.color-circle{
+    padding: 3px;
+    height: 5px;
+    width: 5px;
+    border: none;
+    border: 2px solid #7e7e7e;
+    border-radius: 50px;
+    margin: 7px;
+}
+
+</style>
