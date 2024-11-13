@@ -1,12 +1,22 @@
-var myApp = angular.module("myApp", ['ngRoute']);
+var myApp = angular.module("myApp",['ngRoute','ngAnimate']);
 
 // before app runs
-myApp.config(['$routeProvider', function($routeProvider){
+myApp.config(['$routeProvider', '$locationProvider', function($routeProvider,$locationProvider){
+
+    // $locationProvider.html5Mode(true);
 
     $routeProvider
     .when('/home', {
         templateUrl: 'views/home.html',
         controller: 'AppController'
+    })
+    .when('/contact', {
+        templateUrl: 'views/contact.html',
+        controller: 'ContactController'
+    })
+    .when('/contact-success', {
+        templateUrl: 'views/contact-success.html',
+        controller: 'ContactController'
     })
     .when('/directory', {
         templateUrl: 'views/directory.html',
@@ -15,6 +25,7 @@ myApp.config(['$routeProvider', function($routeProvider){
     .otherwise({
         redirectTo: '/home'
     });
+
 }]);
 
 
@@ -32,6 +43,7 @@ myApp.directive('randomSong', [function() {
             title: '='
         },
         templateUrl: 'views/random.html',
+        transclude: true,
         controller: function($scope) {
             $scope.random = Math.floor(Math.random() * 8);
         }
@@ -65,6 +77,10 @@ myApp.controller('AppController', ['$scope','$http', function($scope,$http){
             alert("Please fill out the fields.");
         }
     };
+
+    $scope.removeAll = function() {
+        $scope.arr = [];
+    };
     
     $http.get('data/arr.json')
     .then(function(response) {
@@ -75,5 +91,15 @@ myApp.controller('AppController', ['$scope','$http', function($scope,$http){
     });
 
     console.log(angular.toJson($scope.arr));
+
+}]);
+
+
+
+myApp.controller('ContactController', ['$scope','$location', function($scope,$location){
+
+    $scope.sendMessage = function(){
+        $location.path('/contact-success');
+    };
 
 }]);

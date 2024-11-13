@@ -1,0 +1,67 @@
+<div class="content">
+    <form name="contactForm" ng-submit="sendMessage()" novalidate>
+        <h5>contact form</h5>
+        <input type="text" placeholder="name*" name="name" ng-model="contact.name" ng-required="true"/>
+        <div ng-show="contactForm.name.$touched && contactForm.name.$invalid">
+            <small>Enter a valid Name</small>
+        </div>
+        <input type="email" placeholder="Email*" name="email" ng-model="contact.email" ng-required="true"/>
+        <div ng-show="contactForm.email.$touched && contactForm.name.$invalid">
+            <small>Enter a valid Email</small>
+        </div>
+        <textarea placeholder="Your Message"  name="message" ng-model="contact.message" ng-required="true"></textarea>
+        <input class="contact-send-btn" type="submit" value="Send" ng-disabled="contactForm.$invalid" />
+    </form>
+</div>
+
+<style>
+
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    height: 90vh;
+    transform: translateX(-5px);
+}
+
+h5{
+    color: rgb(39, 39, 39);
+    margin-left: 10px;
+}
+
+form{
+    color: black;
+    background-color: #effff2;
+    padding: 20px;
+    padding-right: 30px;
+    padding-top: 5px;
+    border: none;
+    border: 2px solid #89e099;
+    border-radius: 20px;
+}
+
+form small {
+    color: red;
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    margin-top: -10px;
+    margin-left: 10px;
+}
+
+input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched{
+    border: 2px solid red;
+}
+
+.contact-send-btn{
+    width: 70px;
+    background-color: #c9ffd3;
+}
+
+input[disabled='disabled']{
+    border: 2px solid rgba(255, 0, 0, 0.288);
+    background-color: #d6d6d6;
+    cursor: not-allowed !important;
+}
+
+</style>

@@ -41,7 +41,7 @@ body{
     width: 150px;
 }
 
-input{
+input, textarea{
     border: none;
     border: 2px solid #007c15;
     background-color: #effff2;
@@ -61,6 +61,9 @@ input{
     border: 2px solid #64c574;
     border-radius: 20px;
     font-size: 18px;
+    overflow: hidden;
+    transition: 0.3s ease-in-out;
+    min-height: 200px;
 }
 
 .main .list-box .color-circle{
@@ -82,7 +85,13 @@ input{
     border-top: 2px solid #78ce8a;
 }
 
-.main ul li span{
+.main ul li .songs-box{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.main ul li .songs-box span{
     color: rgb(255, 99, 99);
     float: right;
     padding-left: 5px;
@@ -112,12 +121,54 @@ input{
 
 .add-section button{
     border: none;
-    border: 2px solid #007c15;
-    background-color: #effff2;
+    border: 2px solid #7c0000;
+    background-color: #ffffff;
+    text-shadow: 0px 0px 50px #ff0101;
     border-radius: 20px;
     padding: 10px;
     font-weight: 600;
     margin-right: 0px;
-    width: 70px;
+    width: 100px;
     margin: 20px;
 }
+
+
+/* Animations */
+
+main.ng-enter{
+    transition: 0.6s linear all;
+    opacity: 0;
+}
+
+main.ng-enter.ng-enter-active{
+    opacity: 1;
+}
+
+
+#song-list li.ng-enter {
+    transition: 0.6s linear all;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+#song-list li.ng-enter.ng-enter-active {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+#song-list li.ng-leave {
+    transition: 0.2s linear all;
+    opacity: 0.5;
+    transform: translateX(0px);
+}
+
+#song-list li.ng-leave.ng-leave-active {
+    opacity: 0;
+    transform: translateX(100px);
+}
+
+#song-list li.ng-leave-stagger{
+    transition-delay: 0.1;
+    transition-duration: 0;
+}
+

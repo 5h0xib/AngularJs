@@ -1,16 +1,25 @@
-<div>
+<div class="random-song-container">
     <h1>{{title}}</h1>
     <div class="random-song-div">
         <div class="color-circle" style="background-color: {{arr[random].color}}"></div>
         {{arr[random].name}}
     </div>
+    <div ng-transclude></div>
 </div>
 
 <style>
 
+.random-song-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
 .random-song-div{
     background-color: rgb(235, 235, 235);
     height: 60px;
+    width: 250px;
     display: flex;
     justify-content: center;
     align-items: center;
